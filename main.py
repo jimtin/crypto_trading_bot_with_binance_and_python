@@ -1,16 +1,41 @@
-# This is a sample Python script.
+import json
+import os
+# Developed libraries
+import binance_interaction
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+# Variable for the location of settings.json
+import_filepath = "settings.json"
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
+# Function to import settings from settings.json
+def get_project_settings(importFilepath):
+    # Test the filepath to sure it exists
+    if os.path.exists(importFilepath):
+        # Open the file
+        f = open(importFilepath, "r")
+        # Get the information from file
+        project_settings = json.load(f)
+        # Close the file
+        f.close()
+        # Return project settings to program
+        return project_settings
+    else:
+        return ImportError
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Get the status
+    status = binance_interaction.query_binance_status()
+    if status:
+        # Import project settings
+        project_settings = get_project_settings(import_filepath)
+        # Set the keys
+        api_key = project_settings['BinanceKeys']['API_Key']
+        secret_key = project_settings['BinanceKeys']['Secret_Key']
+        # Retrieve account information
+        account = binance_interaction.query_account(api_key=api_key, secret_key=secret_key)
+        if account['canTrade']:
+            print("Let's Do This!")
+            market_data = binance_interaction.get_candlestick_data("BTCUSDT", "1h", 2)
+            print(market_data)

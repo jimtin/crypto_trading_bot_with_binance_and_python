@@ -1,0 +1,6 @@
+{
+    "BinanceKeys": {
+        "API_Key": "YourAPIKey",
+        "Secret_Key": "YourSuperSecretAPIKey"
+    }
+}
