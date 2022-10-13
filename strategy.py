@@ -22,7 +22,7 @@ def get_and_transform_binance_data(symbol, timeframe, number_of_candles):
 
 # Function to determine a 'Buy' event for strategy
 def determine_buy_event(symbol, timeframe, percentage_rise):
-    # Retrieve the previous 4 candles (need 4 candles to check 3 price rises)
+    # Retrieve the previous 3 candles
     candlestick_data = get_and_transform_binance_data(symbol=symbol, timeframe=timeframe, number_of_candles=3)
     # Determine if last three values were Green
     if candlestick_data.loc[0, 'RedOrGreen'] == "Green" and candlestick_data.loc[1, 'RedOrGreen'] == "Green" and candlestick_data.loc[2, 'RedOrGreen'] == "Green":

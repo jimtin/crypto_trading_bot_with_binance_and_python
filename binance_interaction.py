@@ -51,8 +51,9 @@ def query_quote_asset_list(quote_asset_symbol):
     symbol_dictionary = Spot().exchange_info()
     # Convert into a dataframe
     symbol_dataframe = pandas.DataFrame(symbol_dictionary['symbols'])
-    # Extract only those symbols with a base asset of BUSD
+    # Extract only those symbols with a base asset of BUSD and status of TRADING
     quote_symbol_dataframe = symbol_dataframe.loc[symbol_dataframe['quoteAsset'] == quote_asset_symbol]
+    quote_symbol_dataframe = quote_symbol_dataframe.loc[quote_symbol_dataframe['status'] == "TRADING"]
     # Return base_symbol_dataframe
     return quote_symbol_dataframe
 
