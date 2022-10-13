@@ -55,3 +55,141 @@ def query_quote_asset_list(quote_asset_symbol):
     quote_symbol_dataframe = symbol_dataframe.loc[symbol_dataframe['quoteAsset'] == quote_asset_symbol]
     # Return base_symbol_dataframe
     return quote_symbol_dataframe
+
+
+# Function to make a trade on Binance
+def make_trade(symbol, action, type, timeLimit, quantity, stop_price, stop_limit_price, project_settings):
+    # Develop the params
+    params = {
+        "symbol": symbol,
+        "side": action,
+        "type": type,
+        "timeInForce": timeLimit,
+        "quantity": quantity,
+        "stopPrice": stop_price,
+        "stopLimitPrice": stop_limit_price,
+        "trailingDelta": project_settings['trailingStopPercent']
+    }
+
+    # Add in the trailing stop limit
+
+    # See if we're testing. Default to yes.
+    if project_settings['Testing'] == "False":
+        print("Real Trade")
+        # Set the API Key
+        api_key = project_settings['BinanceKeys']['API_Key']
+        # Set the secret key
+        secret_key = project_settings['BinanceKeys']['Secret_Key']
+        # Setup the client
+        client = Spot(key=api_key, secret=secret_key)
+    else:
+        print("Testing Trading")
+        # Set the Test API Key
+        api_key = project_settings['TestKeys']['Test_API_Key']
+        # Set the Test Secret Key
+        secret_key = project_settings['TestKeys']['Test_Secret_Key']
+        client = Spot(key=api_key, secret=secret_key, base_url="https://testnet.binance.vision")
+
+    # Make the trade
+    try:
+        response = client.new_order(**params)
+        return response
+    except ConnectionRefusedError as error:
+        print(f"Found error. {error}")
+
+
+# Function to make a trade if params provided
+def make_trade_with_params(params, project_settings):
+    # See if we're testing. Default to yes.
+    if project_settings['Testing'] == "False":
+        print("Real Trade")
+        # Set the API Key
+        api_key = project_settings['BinanceKeys']['API_Key']
+        # Set the secret key
+        secret_key = project_settings['BinanceKeys']['Secret_Key']
+        # Setup the client
+        client = Spot(key=api_key, secret=secret_key)
+    else:
+        print("Testing Trading")
+        # Set the Test API Key
+        api_key = project_settings['TestKeys']['Test_API_Key']
+        # Set the Test Secret Key
+        secret_key = project_settings['TestKeys']['Test_Secret_Key']
+        client = Spot(key=api_key, secret=secret_key, base_url="https://testnet.binance.vision")
+
+    # Make the trade
+    try:
+        response = client.new_order(**params)
+        return response
+    except ConnectionRefusedError as error:
+        print(f"Found error. {error}")
+
+
+# Function to cancel a trade
+def cancel_order_by_symbol(symbol, project_settings):
+    # See if we're testing. Default to yes.
+    if project_settings['Testing'] == "False":
+        # Set the API Key
+        api_key = project_settings['BinanceKeys']['API_Key']
+        # Set the secret key
+        secret_key = project_settings['BinanceKeys']['Secret_Key']
+        # Setup the client
+        client = Spot(key=api_key, secret=secret_key)
+    else:
+        print("Testing Trading")
+        # Set the Test API Key
+        api_key = project_settings['TestKeys']['Test_API_Key']
+        # Set the Test Secret Key
+        secret_key = project_settings['TestKeys']['Test_Secret_Key']
+        client = Spot(key=api_key, secret=secret_key, base_url="https://testnet.binance.vision")
+
+    # Cancel the trade
+    try:
+        response = client.cancel_open_orders(symbol=symbol)
+        return response
+    except ConnectionRefusedError as error:
+        print(f"Found error {error}")
+
+
+# Function to query open trades
+def query_open_trades(project_settings):
+    # See if we're testing. Default to yes.
+    if project_settings['Testing'] == "False":
+        # Set the API Key
+        api_key = project_settings['BinanceKeys']['API_Key']
+        # Set the secret key
+        secret_key = project_settings['BinanceKeys']['Secret_Key']
+        # Setup the client
+        client = Spot(key=api_key, secret=secret_key)
+    else:
+        # Set the Test API Key
+        api_key = project_settings['TestKeys']['Test_API_Key']
+        # Set the Test Secret Key
+        secret_key = project_settings['TestKeys']['Test_Secret_Key']
+        client = Spot(key=api_key, secret=secret_key, base_url="https://testnet.binance.vision")
+
+    # Cancel the trade
+    try:
+        response = client.get_open_orders()
+        return response
+    except ConnectionRefusedError as error:
+        print(f"Found error {error}")
+
+
+def get_balance(project_settings):
+    # See if we're testing. Default to yes.
+    if project_settings['Testing'] == "False":
+        # Set the API Key
+        api_key = project_settings['BinanceKeys']['API_Key']
+        # Set the secret key
+        secret_key = project_settings['BinanceKeys']['Secret_Key']
+        # Setup the client
+        client = Spot(key=api_key, secret=secret_key)
+    else:
+        # Set the Test API Key
+        api_key = project_settings['TestKeys']['Test_API_Key']
+        # Set the Test Secret Key
+        secret_key = project_settings['TestKeys']['Test_Secret_Key']
+        client = Spot(key=api_key, secret=secret_key, base_url="https://testnet.binance.vision")
+
+    return client.account_snapshot("SPOT")
