@@ -9,7 +9,16 @@ Four part series teaching you how to build a crypto trading bot.
 - Familiarity with trading terms (candles, buy signals, trailing stop)
 - Familiarity with Binance or equivalent centralized crypto exchange
 
-## List of Episodes
+## YouTube Episodes
+1. [Build Your Own Crypto Trading Bot with Python and Binance: Getting Started](https://youtu.be/NBL-Id7vNl8)
+2. [Retreive Candlesticks](https://youtu.be/VsDdOuNV_Ng)
+3. [Calculate RSI with Python](https://youtu.be/uac7RDDxhQo)
+4. [RSI Strategy with Python](https://youtu.be/0lrrEHY3A2M)
+5. [Make Trades on Binance with Python](https://youtu.be/u5qm3bb1dVY)
+6. [List Open Orders on Binance with Python](https://youtu.be/PzFQUYiSgHk)
+7. [Cancel Open Orders on Binance with Python](https://youtu.be/LONTnViHjPo)
+
+## Blog List of Episodes
 ### [Episode 1: Connecting to Binance](https://paragraph.xyz/@appnologyjames/how-to-build-a-crypto-trading-bot-with-binance-and-python-connect-to-binance)
 Demonstrates how to connect to Binance using the Binance provided Python wrapper. 
 
