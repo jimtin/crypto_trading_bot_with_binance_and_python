@@ -19,15 +19,15 @@ Four part series teaching you how to build a crypto trading bot.
 7. [Cancel Open Orders on Binance with Python](https://youtu.be/LONTnViHjPo)
 
 ## Blog List of Episodes
-### [Episode 1: Connecting to Binance](https://www.appnologyjames.com/how-to-build-a-crypto-trading-bot-with-binance-and-python-connect-to-binance/)
+### [Episode 1: Connecting to Binance](www.thedisruptioncontinuum.channel/how-to-build-a-crypto-trading-bot-with-binance-and-python-connect-to-binance/)
 Demonstrates how to connect to Binance using the Binance provided Python wrapper. 
 
-### [Episode 2: Trading Bot Strategy Example](https://www.appnologyjames.com/how-to-build-a-crypto-trading-bot-with-binance-and-python-trading-bot-strategy-example/)
+### [Episode 2: Trading Bot Strategy Example](www.thedisruptioncontinuum.channel/how-to-build-a-crypto-trading-bot-with-binance-and-python-trading-bot-strategy-example/)
 Demonstrates how build and codify a working trading bot strategy. 
 
-### [Episode 3: Automatic Trade Placement](https://www.appnologyjames.com/how-to-build-a-crypto-trading-bot-with-binance-and-python-automating-trade-placement/)
+### [Episode 3: Automatic Trade Placement](www.thedisruptioncontinuum.channel/how-to-build-a-crypto-trading-bot-with-binance-and-python-automating-trade-placement/)
 Demonstrates functionality place trades on Binance, with options to test (default) and live trade
 
-### [Episode 4: Putting it all Together](https://www.appnologyjames.com/how-to-build-a-crypto-trading-bot-with-binance-and-python-putting-it-all-together/)
+### [Episode 4: Putting it all Together](www.thedisruptioncontinuum.channel/how-to-build-a-crypto-trading-bot-with-binance-and-python-putting-it-all-together/)
 Capstone episode demonstrating how to put all the code together
 
