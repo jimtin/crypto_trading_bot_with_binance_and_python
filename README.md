@@ -28,6 +28,6 @@ Demonstrates how build and codify a working trading bot strategy.
 ### [Episode 3: Automatic Trade Placement](https://www.thedisruptioncontinuum.channel/how-to-build-a-crypto-trading-bot-with-binance-and-python-automating-trade-placement/)
 Demonstrates functionality place trades on Binance, with options to test (default) and live trade
 
-### [Episode 4: Putting it all Together](www.thedisruptioncontinuum.channel/how-to-build-a-crypto-trading-bot-with-binance-and-python-putting-it-all-together/)
+### [Episode 4: Putting it all Together](https://www.thedisruptioncontinuum.channel/how-to-build-a-crypto-trading-bot-with-binance-and-python-putting-it-all-together/)
 Capstone episode demonstrating how to put all the code together
 
